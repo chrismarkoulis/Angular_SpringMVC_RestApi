@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SalesmanAPI</title>
+</head>
+
+<body>
+    <div class="container">
+    <h1>Welcome to SalesmanAPI</h1>
+    <br>
+        <form class="form-horizontal">
+            <input type="hidden" name="salesman.scode"/>
+            <label class="control-label col-sm-2">Enter Name: </label><input type="text" [(ngModel)]="salesman.sname" name="name" /><br>
+            <label class="control-label col-sm-2">Enter City: </label><input type="text" [(ngModel)]="salesman.scity" name="city" /><br>
+            <label class="control-label col-sm-2">Enter Commision: </label><input type="text" [(ngModel)]="salesman.scomm" name="commision" /><br>
+            <button (click)="addSalesman()">Add Salesman</button>
+        </form>
+    </div>
+    <hr>
+    <div class="container">
+        <table class = "table table-striped table-bordered">
+            <tr style = "background: lightslategrey">
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Commision</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor="let salesman of salesmanList">
+                <td>{{salesman.scode}}</td>
+                <td>{{salesman.sname}}</td>
+                <td>{{salesman.scity}}</td>
+                <td>{{salesman.scomm}}</td>
+                <td><button (click)="getSalesmanById(salesman.scode)">Update</button> | <button
+                        (click)="deleteSalesman(salesman.scode)">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
